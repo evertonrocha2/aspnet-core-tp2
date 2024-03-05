@@ -1,0 +1,51 @@
+﻿@page "/"
+@model tp2AspNet.Pages.PessoasModel
+@{
+}
+
+@functions{
+    public class Pessoa
+    {
+
+        private string nome;
+        private int idade;
+        private string cpf;
+
+
+        public string Nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
+
+        public int Idade
+        {
+            get { return idade; }
+            set { idade = value; }
+        }
+
+        public string CPF
+        {
+            get { return cpf; }
+            set { cpf = value; }
+        }
+
+
+    }
+    List<Pessoa> pessoas = new List<Pessoa>{
+        new Pessoa {Nome = "Everton", Idade = 21, CPF = "222222222"},
+        new Pessoa {Nome = "Miguel", Idade = 22, CPF = "333333333"},
+        new Pessoa {Nome = "Ricardo", Idade = 91, CPF = "322222221"}
+    };
+}
+
+
+<h1>
+    Alunos cadastrados
+</h1>
+@foreach(var pessoa in pessoas)
+{
+    <ul>
+        <li>@pessoa.Nome - idade: @pessoa.Idade - CPF: @pessoa.CPF</li>
+    </ul>
+}
